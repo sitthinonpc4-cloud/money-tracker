@@ -1,22 +1,10 @@
-const sheetID = "1TFXgnTXXc1syOd0Oi7aLn69G1j2nG7rvFTUoxeBK0ck";
-const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json`;
-
-fetch(url)
-  .then(res => res.text())
+fetch("https://script.google.com/macros/s/AKfycbyQa_1CME66rOHncEmwOMPUD5Y4husn0cbEj7BNZu1i8fpAy2aSDN41b2BFereqUTK9uQ/exec")
+  .then(res => res.json())
   .then(data => {
 
-    const json = JSON.parse(data.substring(47).slice(0, -2));
-    const rows = json.table.rows;
-
-    const income = rows[0].c[1].v;
-    const expense = rows[1].c[1].v;
-    const balance = income - expense;
-
-    document.getElementById("income").innerText = "รายรับ: " + income;
-    document.getElementById("expense").innerText = "รายจ่าย: " + expense;
-    document.getElementById("balance").innerText = "คงเหลือ: " + balance;
+    document.getElementById("income").innerText = "รายรับ: " + data.รายรับ;
+    document.getElementById("expense").innerText = "รายจ่าย: " + data.รายจ่าย;
+    document.getElementById("balance").innerText = "คงเหลือ: " + data.คงเหลือ;
 
   })
-  .catch(err => {
-    console.log("Error:", err);
-  });
+  .catch(err => console.log(err));
