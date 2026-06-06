@@ -5,7 +5,9 @@
   <title>Money Tracker</title>
 </head>
 
-<body style="font-family:sans-serif; text-align:center;">
+<body>
+
+  <!-- 🔵 ส่วนนี้คือ “หน้าเว็บ” -->
 
   <h1>💰 Money Tracker</h1>
 
@@ -13,25 +15,9 @@
   <h2 id="expense">รายจ่าย: ...</h2>
   <h2 id="balance">คงเหลือ: ...</h2>
 
-<script>
-const sheetID = "1TFXgnTXXc1syOd0Oi7aLn69G1j2nG7rvFTUoxeBK0ck";
-const url = `https://docs.google.com/spreadsheets/d/1TFXgnTXXc1syOd0Oi7aLn69G1j2nG7rvFTUoxeBK0ck/edit?usp=sharing`;
+  <!-- 🔴 ตรงนี้แหละที่ต้องใส่ script -->
 
-fetch(url)
-  .then(res => res.text())
-  .then(data => {
-    const json = JSON.parse(data.substring(47).slice(0, -2));
-    const rows = json.table.rows;
-
-    const income = rows[0].c[1].v;
-    const expense = rows[1].c[1].v;
-    const balance = income - expense;
-
-    document.getElementById("income").innerText = "รายรับ: " + income;
-    document.getElementById("expense").innerText = "รายจ่าย: " + expense;
-    document.getElementById("balance").innerText = "คงเหลือ: " + balance;
-  });
-</script>
+  <script src="script.js"></script>
 
 </body>
 </html>
