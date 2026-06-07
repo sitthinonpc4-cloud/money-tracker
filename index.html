@@ -5,37 +5,21 @@
   <title>Money Tracker</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <div class="container">
+  <h1>💰 Dashboard</h1>
 
-    <h1>💳 Money Dashboard</h1>
+  <button onclick="load('daily')">รายวัน</button>
+  <button onclick="load('weekly')">รายสัปดาห์</button>
+  <button onclick="load('monthly')">รายเดือน</button>
+  <button onclick="load('yearly')">รายปี</button>
+  <button onclick="load('quarter')">ไตรมาส</button>
 
-    <!-- 💰 cards -->
-    <div class="card" id="student">บัตรนักเรียน: ...</div>
-    <div class="card" id="truemoney">TrueMoney: ...</div>
-    <div class="card" id="cash">เงินสด: ...</div>
-    <div class="card balance" id="balance">รวม: ...</div>
+  <canvas id="chart"></canvas>
 
-    <!-- 📊 chart -->
-    <div class="chart-box">
-      <canvas id="chart"></canvas>
-    </div>
-
-    <!-- 🔘 button -->
-    <button onclick="openForm()">+ เพิ่มรายการ</button>
-
-    <!-- 🔗 input form link -->
-    <input id="formLink" placeholder="https://forms.gle/fGviYtDctusu1PhK6">
-    <button onclick="openFormFromInput()">เปิดฟอร์ม</button>
-
-  </div>
-
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
