@@ -4,28 +4,56 @@
   <meta charset="UTF-8">
   <title>Money Tracker</title>
 
- <head>
-  <meta charset="UTF-8">
-  <title>Money Tracker</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-   <h1>💰 Money Tracker</h1>
+<!-- 🔐 PIN SCREEN -->
+<div id="lock">
+  <h2>ใส่ PIN</h2>
+  <input id="pinInput" type="password" maxlength="4">
+  <button onclick="checkPIN()">เข้าแอป</button>
+</div>
 
-    <!-- 🔥 ฟอร์ม Google Form -->
-    <iframe
-      src="https://forms.gle/6BTeKZF586VQ9La18"
-      width="100%"
-      height="500"
-      frameborder="0">
-    </iframe>
+<!-- 🌐 APP -->
+<div id="app" style="display:none;">
+
+  <div class="container">
+
+    <h1>💳 Money App</h1>
+
+    <!-- 🔥 ฟอร์มอยู่ตรงนี้ -->
+    <iframe src="https://forms.gle/C8vh4Xp1GzWBzUn18"></iframe>
 
     <div class="card income" id="income">รายรับ: ...</div>
     <div class="card expense" id="expense">รายจ่าย: ...</div>
     <div class="card balance" id="balance">คงเหลือ: ...</div>
 
-  <script src="script.js"></script>
+    <button onclick="openForm()">+ เพิ่มรายการ</button>
+
+    <canvas id="chart"></canvas>
+
+  </div>
+
+</div>
+
+<!-- 🧾 POPUP -->
+<div id="popup" class="popup">
+  <div class="form">
+    <h2>เพิ่มรายการ</h2>
+
+    <input id="type" placeholder="รายรับ / รายจ่าย">
+    <input id="amount" type="number" placeholder="จำนวนเงิน">
+    <input id="source" placeholder="บัตร / ทรู / เงินสด">
+
+    <button onclick="addData()">บันทึก</button>
+    <button onclick="closeForm()">ปิด</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
