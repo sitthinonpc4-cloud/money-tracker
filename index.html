@@ -4,56 +4,31 @@
   <meta charset="UTF-8">
   <title>Money Tracker</title>
 
-  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<!-- 🔐 PIN SCREEN -->
-<div id="lock">
-  <h2>ใส่ PIN</h2>
-  <input id="pinInput" type="password" maxlength="4">
-  <button onclick="checkPIN()">เข้าแอป</button>
-</div>
+  <h1>💳 Money Dashboard</h1>
 
-<!-- 🌐 APP -->
-<div id="app" style="display:none;">
+  <!-- 💰 ยอดเงิน -->
+  <div id="student">บัตรนักเรียน: ...</div>
+  <div id="truemoney">TrueMoney: ...</div>
+  <div id="cash">เงินสด: ...</div>
+  <div id="balance">รวม: ...</div>
 
-  <div class="container">
+  <!-- 📊 กราฟ -->
+  <canvas id="chart"></canvas>
 
-    <h1>💳 Money App</h1>
+  <!-- 🔘 ปุ่มเปิดฟอร์ม -->
+  <button onclick="openForm()">+ เพิ่มรายการ</button>
 
-    <!-- 🔥 ฟอร์มอยู่ตรงนี้ -->
-    <iframe src="https://forms.gle/C8vh4Xp1GzWBzUn18"></iframe>
+  <!-- 🔗 ช่องใส่ลิงก์ Google Form (ที่นายถาม) -->
+  <input id="formLink" placeholder="https://forms.gle/HwKAV5JeZCe3nGLL7">
 
-    <div class="card income" id="income">รายรับ: ...</div>
-    <div class="card expense" id="expense">รายจ่าย: ...</div>
-    <div class="card balance" id="balance">คงเหลือ: ...</div>
+  <button onclick="openFormFromInput()">เปิดฟอร์ม</button>
 
-    <button onclick="openForm()">+ เพิ่มรายการ</button>
-
-    <canvas id="chart"></canvas>
-
-  </div>
-
-</div>
-
-<!-- 🧾 POPUP -->
-<div id="popup" class="popup">
-  <div class="form">
-    <h2>เพิ่มรายการ</h2>
-
-    <input id="type" placeholder="รายรับ / รายจ่าย">
-    <input id="amount" type="number" placeholder="จำนวนเงิน">
-    <input id="source" placeholder="บัตร / ทรู / เงินสด">
-
-    <button onclick="addData()">บันทึก</button>
-    <button onclick="closeForm()">ปิด</button>
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
