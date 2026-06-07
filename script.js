@@ -1,40 +1,41 @@
-const API = "https://script.google.com/macros/s/AKfycbwtnVyvuz7VcUnL0XdebSGdnBse7HQgCneykelf7N17z0dufqUQpArcNjbZLBah3dW_Sw/exec";
+const API = "https://script.google.com/macros/s/AKfycbztHbZGLLCzuWuFEMPoR0ErNUxL6j1-o4vNxCS9xQOJabYfdrNxQVc2Cpz-AOez9Xptxg/exec";
 
-function loadData() {
+// 🔗 Google Form (ใส่ลิงก์ตรงนี้จบ)
+const FORM_LINK = "https://script.google.com/macros/s/AKfycbztHbZGLLCzuWuFEMPoR0ErNUxL6j1-o4vNxCS9xQOJabYfdrNxQVc2Cpz-AOez9Xptxg/exec";
 
-  fetch(API)
-    .then(res => res.json())
-    .then(data => {
+let chart;
 
-      document.getElementById("student").innerText =
-        "บัตรนักเรียน: " + (data.student || 0);
-
-      document.getElementById("truemoney").innerText =
-        "TrueMoney: " + (data.truemoney || 0);
-
-      document.getElementById("cash").innerText =
-        "เงินสด: " + (data.cash || 0);
-
-      document.getElementById("balance").innerText =
-        "รวม: " + (data.คงเหลือ || 0);
-
-      new Chart(document.getElementById("chart"), {
-        type: "bar",
-        data: {
-          labels: ["บัตร", "ทรู", "เงินสด"],
-          datasets: [{
-            data: [data.student, data.truemoney, data.cash]
-          }]
-        }
-      });
-
-    });
+function openForm() {
+  window.open(FORM_LINK, "_blank");
 }
 
-function openFormFromInput() {
-  const link = document.getElementById("formLink").value;
-  if (!link) return alert("ใส่ลิงก์ก่อน");
-  window.open(link, "_blank");
+async function getData() {
+  const res = await fetch(API);
+  return await res.json();
 }
 
-loadData();
+async function loadChart(type) {
+
+  const data = await getData();
+  const obj = data[type];
+
+  const labels = Object.keys(obj);
+  const values = Object.values(obj);
+
+  if (chart) chart.destroy();
+
+  chart = new Chart(document.getElementById("chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [{
+        label: type,
+        data: values,
+        borderColor: "#4da3ff"
+      }]
+    }
+  });
+}
+
+// โหลดครั้งแรก
+loadChart("daily");
