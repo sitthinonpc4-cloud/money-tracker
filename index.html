@@ -5,21 +5,36 @@
   <title>Money Tracker</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { font-family: sans-serif; text-align:center; background:#0b1220; color:white; }
+    button { margin:5px; padding:10px; }
+    canvas { max-width:500px; margin:auto; }
+  </style>
 </head>
 
 <body>
 
-  <h1>💰 Dashboard</h1>
+<h1>💰 Money Dashboard</h1>
 
-  <button onclick="load('daily')">รายวัน</button>
-  <button onclick="load('weekly')">รายสัปดาห์</button>
-  <button onclick="load('monthly')">รายเดือน</button>
-  <button onclick="load('yearly')">รายปี</button>
-  <button onclick="load('quarter')">ไตรมาส</button>
+<!-- ปุ่มเลือกกราฟ -->
+<button onclick="loadChart('daily')">รายวัน</button>
+<button onclick="loadChart('weekly')">รายสัปดาห์</button>
+<button onclick="loadChart('monthly')">รายเดือน</button>
+<button onclick="loadChart('yearly')">รายปี</button>
+<button onclick="loadChart('quarter')">ไตรมาส</button>
 
-  <canvas id="chart"></canvas>
+<br><br>
 
-  <script src="script.js"></script>
+<!-- กราฟ -->
+<canvas id="chart"></canvas>
+
+<br>
+
+<!-- ปุ่มเปิด Google Form -->
+<button onclick="openForm()">➕ เพิ่มรายการ</button>
+
+<script src="script.js"></script>
 
 </body>
 </html>
