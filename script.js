@@ -1,4 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbyuW7cIt-xcCca4fMLLVHWIRLuT8sy0KUB7X2RgPotmRES1gzmDXlK5qEPGszAPavmYHQ/exec";
+const API = "https://script.google.com/macros/s/AKfycbw90MmAaEj9ShCQNE2v3nt6H3279utd-FfQAsG0H2pg_kq6G5rbswB6PZkW9qDYLJbDIQ/exec";
 const PIN = "1234";
 
 // 🔐 PIN
