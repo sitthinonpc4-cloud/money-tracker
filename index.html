@@ -5,30 +5,37 @@
   <title>Money Tracker</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <h1>💳 Money Dashboard</h1>
+  <div class="container">
 
-  <!-- 💰 ยอดเงิน -->
-  <div id="student">บัตรนักเรียน: ...</div>
-  <div id="truemoney">TrueMoney: ...</div>
-  <div id="cash">เงินสด: ...</div>
-  <div id="balance">รวม: ...</div>
+    <h1>💳 Money Dashboard</h1>
 
-  <!-- 📊 กราฟ -->
-  <canvas id="chart"></canvas>
+    <!-- 💰 cards -->
+    <div class="card" id="student">บัตรนักเรียน: ...</div>
+    <div class="card" id="truemoney">TrueMoney: ...</div>
+    <div class="card" id="cash">เงินสด: ...</div>
+    <div class="card balance" id="balance">รวม: ...</div>
 
-  <!-- 🔘 ปุ่มเปิดฟอร์ม -->
-  <button onclick="openForm()">+ เพิ่มรายการ</button>
+    <!-- 📊 chart -->
+    <div class="chart-box">
+      <canvas id="chart"></canvas>
+    </div>
 
-  <!-- 🔗 ช่องใส่ลิงก์ Google Form (ที่นายถาม) -->
-  <input id="formLink" placeholder="https://forms.gle/HwKAV5JeZCe3nGLL7">
+    <!-- 🔘 button -->
+    <button onclick="openForm()">+ เพิ่มรายการ</button>
 
-  <button onclick="openFormFromInput()">เปิดฟอร์ม</button>
+    <!-- 🔗 input form link -->
+    <input id="formLink" placeholder="https://forms.gle/fGviYtDctusu1PhK6">
+    <button onclick="openFormFromInput()">เปิดฟอร์ม</button>
 
-  <script src="script.js"></script>
+  </div>
+
+  <script src="./script.js"></script>
 
 </body>
 </html>
