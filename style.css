@@ -26,3 +26,26 @@ body {
 .income { border-left: 6px solid #22c55e; }
 .expense { border-left: 6px solid #ef4444; }
 .balance { border-left: 6px solid #facc15; }
+
+/* 🔥 ฟอร์ม (ถ้ามี) */
+.form {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.form button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+}
