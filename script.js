@@ -7,23 +7,22 @@ function loadData() {
     .then(data => {
 
       document.getElementById("student").innerText =
-        "บัตรนักเรียน: " + data.student;
+        "บัตรนักเรียน: " + (data.student || 0);
 
       document.getElementById("truemoney").innerText =
-        "TrueMoney: " + data.truemoney;
+        "TrueMoney: " + (data.truemoney || 0);
 
       document.getElementById("cash").innerText =
-        "เงินสด: " + data.cash;
+        "เงินสด: " + (data.cash || 0);
 
       document.getElementById("balance").innerText =
-        "รวม: " + data.คงเหลือ;
+        "รวม: " + (data.คงเหลือ || 0);
 
       new Chart(document.getElementById("chart"), {
         type: "bar",
         data: {
           labels: ["บัตร", "ทรู", "เงินสด"],
           datasets: [{
-            label: "เงิน",
             data: [data.student, data.truemoney, data.cash]
           }]
         }
@@ -32,15 +31,9 @@ function loadData() {
     });
 }
 
-// 🔗 เปิดฟอร์มจาก input
 function openFormFromInput() {
   const link = document.getElementById("formLink").value;
-
-  if (!link) {
-    alert("ใส่ลิงก์ก่อน");
-    return;
-  }
-
+  if (!link) return alert("ใส่ลิงก์ก่อน");
   window.open(link, "_blank");
 }
 
